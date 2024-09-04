@@ -1,10 +1,11 @@
 const { DataTypes } = require('sequelize')
 const db = require('./db')
-const User = require('./userModel')
+const User = require('./userModel');
 
 const Event = db.define('Event',{
     eventid: {
-        type: DataTypes.STRING,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true
     },
     eventmanagerCID: {
@@ -25,6 +26,43 @@ const Event = db.define('Event',{
     eventLocation: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    eventDescription: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    available_seats: {
+        type: DataTypes.INTEGER,
+    },
+    start_Date: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+    end_Date: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+    organizer: {
+        type: DataTypes.STRING
+    },
+    organizer_email: {
+        type: DataTypes.STRING
+    },
+    organizer_number: {
+        type: DataTypes.STRING
+    },
+    organizer_web:{
+        type: DataTypes.STRING
+    },
+    event_regulations: {
+        type: DataTypes.ARRAY(DataTypes.STRING)
+    },
+    pricing_Details: {
+        type: DataTypes.STRING
+    },
+    media_Links: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        default: ['']
     }
 })
 
