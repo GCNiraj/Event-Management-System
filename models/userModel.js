@@ -5,8 +5,7 @@ const db  = require('./db');
 const User = db.define('User', {
   cid: {
     type: DataTypes.STRING,
-    primaryKey: true,
-    defaultValue: DataTypes.UUIDV4,
+    primaryKey: true
   },
   name: {
     type: DataTypes.STRING,
@@ -68,6 +67,15 @@ User.prototype.correctPassword = async function(candidatePassword) {
   return await bcrypt.compare(candidatePassword, this.password);
 }
 
-db.sync({alter: true})
+// Sync database (consider using migrations in production)
+async function syncDb() {
+  try {
+    await db.sync({ alter: true });
+  } catch (error) {
+    console.error('Error during database synchronization:', error);
+  }
+}
+
+syncDb();
 
 module.exports = User;
