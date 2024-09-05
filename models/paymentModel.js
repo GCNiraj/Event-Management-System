@@ -31,14 +31,14 @@ const Payment = db.define('Payment', {
     }
 })
 
-// Payment.belongsTo(User, { foreignKey: 'cid' });
-// Payment.belongsTo(Event, { foreignKey: 'eventid' });
+Payment.belongsTo(User, { foreignKey: 'attendee_CID' });
+Payment.belongsTo(Event, { foreignKey: 'event_ID' });
 
 // Sync database and handle potential issues with column existence
 async function syncDb() {
     try {
         const tableDefinition = await db.getQueryInterface().describeTable('Payments');
-        if (!tableDefinition.cid) {
+        if (!tableDefinition.attendee_CID) {
             await db.sync({ alter: true });
         } else {
             console.log('Column "cid" already exists in "Payments" table. No alteration needed.');

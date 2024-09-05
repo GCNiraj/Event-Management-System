@@ -67,13 +67,13 @@ const Event = db.define('Event',{
 })
 
 // Correct `belongsTo` association with proper foreign key syntax
-// Event.belongsTo(User, { foreignKey: 'cid' });
+Event.belongsTo(User, { foreignKey: 'eventmanagerCID' });
 
 // Sync database and handle potential issues with column existence
 async function syncDb() {
     try {
         const tableDefinition = await db.getQueryInterface().describeTable('Events');
-        if (!tableDefinition.cid) {
+        if (!tableDefinition.eventmanagerCID) {
             await db.sync({ alter: true });
         } else {
             console.log('Column "cid" already exists in "Events" table. No alteration needed.');
