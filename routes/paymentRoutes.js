@@ -7,4 +7,6 @@ router
     .post(paymentController.registerEvent)
     .get(paymentController.getAllPayments)
 
+
+
 module.exports = router
