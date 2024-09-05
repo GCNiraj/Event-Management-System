@@ -24,3 +24,8 @@ exports.getProfile = (req, res) => {
 exports.getEventForm = (req, res) => {
     res.sendFile(path.join(__dirname,'../','views','create_venue_event.html'))
 }
+
+/* Event Details Page */ 
+exports.getEventDetails = (req, res) => {
+    res.sendFile(path.join(__dirname,'../','views','venue_event_detail_view.html'))
+}
