@@ -33,3 +33,27 @@
   label: 'Event Management Website',
   timestamp: 'Sep-05-2024 13:54:02'
 }
+{
+  level: 'error',
+  message: AppError: Incorrect email or password
+      at exports.login (/workspaces/Event-Management-System/controllers/authController.js:51:25)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    statusCode: 401,
+    status: 'fail',
+    isOperational: true
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-05-2024 17:34:51'
+}
+{
+  level: 'error',
+  message: AppError: Incorrect email or password
+      at exports.login (/workspaces/Event-Management-System/controllers/authController.js:51:25)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    statusCode: 401,
+    status: 'fail',
+    isOperational: true
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-05-2024 17:35:19'
+}
