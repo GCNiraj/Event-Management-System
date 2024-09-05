@@ -10,3 +10,15 @@
   label: 'Legal Aid Center Website',
   timestamp: 'Sep-05-2024 07:52:17'
 }
+{
+  level: 'error',
+  message: AppError: Event not found
+      at exports.getEvent (/workspaces/Event-Management-System/controllers/eventController.js:26:25)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    statusCode: 404,
+    status: 'fail',
+    isOperational: true
+  },
+  label: 'Legal Aid Center Website',
+  timestamp: 'Sep-05-2024 11:09:58'
+}

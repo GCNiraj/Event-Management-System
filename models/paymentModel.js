@@ -31,8 +31,8 @@ const Payment = db.define('Payment', {
     }
 })
 
-Payment.belongsTo(User, { foreignKey: 'cid' });
-Payment.belongsTo(Event, { foreignKey: 'eventid' });
+// Payment.belongsTo(User, { foreignKey: 'cid' });
+// Payment.belongsTo(Event, { foreignKey: 'eventid' });
 
 // Sync database and handle potential issues with column existence
 async function syncDb() {

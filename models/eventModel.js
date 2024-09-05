@@ -67,7 +67,7 @@ const Event = db.define('Event',{
 })
 
 // Correct `belongsTo` association with proper foreign key syntax
-Event.belongsTo(User, { foreignKey: 'cid' });
+// Event.belongsTo(User, { foreignKey: 'cid' });
 
 // Sync database and handle potential issues with column existence
 async function syncDb() {
