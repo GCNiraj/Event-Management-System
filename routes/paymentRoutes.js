@@ -7,6 +7,14 @@ router
     .post(paymentController.registerEvent)
     .get(paymentController.getAllPayments)
 
+router
+    .route('/:id')
+
+
+router
+    .route('/user/:cid')
+    .get(paymentController.getPaymentsByUserCID);
+
 
 
 module.exports = router

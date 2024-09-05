@@ -18,3 +18,39 @@ exports.registerEvent = async (req, res) => {
         res.status(500).json({error: err.message});
     }
 }
+
+exports.getPayment = async (req, res, next) => {
+    try {
+        const payment = await Payment.findByPk(req.params.id); // Find payment by primary key
+        if (!payment) {
+            return next(new AppError('Payment not found', 404));
+        }
+        res.status(200).json({
+            status: 'success',
+            data: { payment }
+        });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
+
+exports.getPaymentsByUserCID = async (req, res, next) => {
+    try {
+        const payments = await Payment.findAll({
+            where: {
+                attendee_CID: req.params.cid
+            }
+        });
+        
+        if (!payments.length) {
+            return next(new AppError('No payments found for this user', 404));
+        }
+
+        res.status(200).json({
+            status: 'success',
+            data: payments
+        });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
