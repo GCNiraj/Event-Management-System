@@ -22,3 +22,14 @@
   label: 'Legal Aid Center Website',
   timestamp: 'Sep-05-2024 11:09:58'
 }
+{
+  level: 'error',
+  message: AppError: Incorrect email or password
+      at exports.login (/workspaces/javascript-node-postgres-3/controllers/authController.js:51:25) {
+    statusCode: 401,
+    status: 'fail',
+    isOperational: true
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-05-2024 13:54:02'
+}
