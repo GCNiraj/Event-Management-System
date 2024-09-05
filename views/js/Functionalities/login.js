@@ -5,7 +5,7 @@ const login = async (email, password) => {
         const res = await axios({
             method: 'POST',
             url: 'http://localhost:4001/api/v1/users/login',
-            data : {
+            data: {
                 email,
                 password,
             },
@@ -16,17 +16,14 @@ const login = async (email, password) => {
                 location.assign('/')
             }, 1500)
             var obj = res.data.data.user
-
-            localStorage.setItem('UserCID',obj.cid)
-
             document.cookie = ' token = ' + JSON.stringify(obj)
         }
     } catch (err) {
-        let message = 
+        let message =
             typeof err.response !== 'undefined'
-                ?err.response.data.message
-                :err.message
-        showAlert('error', 'Error: Incorrect email or password',message)
+                ? err.response.data.message
+                : err.message
+        showAlert('error', 'Error: Incorrect email or password', message)
     }
 }
 

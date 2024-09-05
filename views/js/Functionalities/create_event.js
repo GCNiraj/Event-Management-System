@@ -1,13 +1,12 @@
 import { showAlert } from './alert.js'
 
-// var obj 
-// if (document.cookie) {
-//     obj = JSON.parse(document.cookie);
-// } else {
-//     obj = JSON.parse('{}');
-// }   
-
-// console.log(obj.cid)
+var obj 
+if (document.cookie) {
+    var tokenString = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
+    var obj = JSON.parse(tokenString);
+} else {
+    obj = JSON.parse('{}');
+}
 
 const create = async (eventmanagerCID,eventName, eventType, start_Date, end_Date, eventDescription, eventLocation) => {
     try {
@@ -25,7 +24,7 @@ const create = async (eventmanagerCID,eventName, eventType, start_Date, end_Date
             },
         })
         if (res.data.status === 'success') {
-            showAlert('success', 'Logged in successfully')
+            showAlert('success', 'Event Created successfully')
             window.setTimeout(() => {
                 location.assign('/')
             }, 1500)
@@ -37,7 +36,7 @@ const create = async (eventmanagerCID,eventName, eventType, start_Date, end_Date
             typeof err.response !== 'undefined'
                 ?err.response.data.message
                 :err.message
-        showAlert('error', 'Error: Incorrect email or password',message)
+        showAlert('error', 'Error: Incorrect or missing details',message)
     }
 }
 
@@ -51,7 +50,5 @@ document.querySelector('#event_add').addEventListener('click', (e) => {
     const event_description = editor.getData().replace("<p>","").replace("</p>","")
     const event_location = document.querySelector("#event_location").value
 
-    // console.log(event_name, event_category, start_date, end_date, event_description, event_location)
-
-    create(localStorage.getItem('UserCID'), event_name, event_category, start_date, end_date, event_description, event_location)
+    create(obj["cid"], event_name, event_category, start_date, end_date, event_description, event_location)
 })
