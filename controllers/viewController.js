@@ -19,3 +19,8 @@ exports.getHome = (req, res) => {
 exports.getProfile = (req, res) => {
     res.sendFile(path.join(__dirname, '../', 'views', 'myprofilepage.html'))
 }
+
+/* Create Event Page */
+exports.getEventForm = (req, res) => {
+    res.sendFile(path.join(__dirname,'../','views','create_venue_event.html'))
+}

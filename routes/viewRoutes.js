@@ -8,4 +8,7 @@ router.get('/signin', viewsController.getLoginForm)
 router.get('/signup', viewsController.getSignupForm)
 // router.get('/me',authController.protect,viewsController.getProfile)
 
+/* Event routes start here */
+router.get('/add_event', viewsController.getEventForm) 
+
 module.exports = router

@@ -16,9 +16,10 @@ const login = async (email, password) => {
                 location.assign('/')
             }, 1500)
             var obj = res.data.data.user
-            console.log(obj)
+
+            localStorage.setItem('UserCID',obj.cid)
+
             document.cookie = ' token = ' + JSON.stringify(obj)
-            console.log(obj)
         }
     } catch (err) {
         let message = 
