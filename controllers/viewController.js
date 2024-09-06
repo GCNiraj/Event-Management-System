@@ -29,3 +29,8 @@ exports.getEventForm = (req, res) => {
 exports.getEventDetails = (req, res) => {
     res.sendFile(path.join(__dirname,'../','views','venue_event_detail_view.html'))
 }
+
+/* Event Details Page */ 
+exports.getEventCheckout = (req, res) => {
+    res.sendFile(path.join(__dirname,'../','views','checkout.html'))
+}
