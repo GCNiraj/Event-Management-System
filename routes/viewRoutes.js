@@ -12,6 +12,7 @@ router.get('/signup', viewsController.getSignupForm)
 router.get('/add_event', viewsController.getEventForm) 
 router.get('/event_details',viewsController.getEventDetails)
 router.get('/checkout',viewsController.getEventCheckout)
+router.get('/bookingConfirmed',viewsController.getEventBooking)
 
 
 module.exports = router

@@ -26,7 +26,7 @@ const create = async (eventmanagerCID,eventName, eventType, start_Date, end_Date
         if (res.data.status === 'success') {
             showAlert('success', 'Event Created successfully')
             window.setTimeout(() => {
-                location.assign('/')
+                window.open('/', '_blank');
             }, 1500)
             var obj = res.data.data.user
             document.cookie = ' token = ' + JSON.stringify(obj)

@@ -19,21 +19,30 @@ const checkout = async (event_ID, attendee_CID, total_Amount, no_of_tickets) => 
                 total_Amount,
                 no_of_tickets
             },
-        })
+        });
+
         if (res.data.status === 'success') {
-            showAlert('success', 'Payment is successfully')
+            showAlert('success', 'Payment is successful');
+
+            // Store the data to encode in the QR code
+            const qrData = JSON.stringify({
+                event_ID,
+                attendee_CID,
+                total_Amount,
+                no_of_tickets
+            });
+
+            // Wait for a moment, then redirect to the confirmation page
             window.setTimeout(() => {
-                location.assign('/')
-            }, 1500)
+                location.assign(`/bookingConfirmed?data=${encodeURIComponent(qrData)}`);
+            }, 1500);
         }
     } catch (err) {
-        let message =
-            typeof err.response !== 'undefined'
-                ? err.response.data.message
-                : err.message
-        showAlert('error', 'Error: Incorrect Details', message)
+        let message = typeof err.response !== 'undefined' ? err.response.data.message : err.message;
+        showAlert('error', 'Error: Incorrect Details', message);
     }
 }
+
 
 document.querySelector('#registerevent').addEventListener('click', (e) => {
     e.preventDefault()

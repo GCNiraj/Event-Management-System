@@ -57,3 +57,14 @@
   label: 'Event Management Website',
   timestamp: 'Sep-05-2024 17:35:19'
 }
+{
+  level: 'error',
+  message: AppError: Incorrect email or password
+      at exports.login (/workspaces/Event-Management-System/controllers/authController.js:51:25) {
+    statusCode: 401,
+    status: 'fail',
+    isOperational: true
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-07-2024 12:26:29'
+}

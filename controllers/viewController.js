@@ -34,3 +34,7 @@ exports.getEventDetails = (req, res) => {
 exports.getEventCheckout = (req, res) => {
     res.sendFile(path.join(__dirname,'../','views','checkout.html'))
 }
+
+exports.getEventBooking = (req, res) => {
+    res.sendFile(path.join(__dirname,'../','views','booking_confirmed.html'))
+}
