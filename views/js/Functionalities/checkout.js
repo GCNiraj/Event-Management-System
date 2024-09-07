@@ -8,14 +8,14 @@ if (document.cookie) {
     obj = JSON.parse('{}');
 }
 
-const checkout = async (event_ID, attendee_ID, total_Amount, no_of_tickets) => {
+const checkout = async (event_ID, attendee_CID, total_Amount, no_of_tickets) => {
     try {
         const res = await axios({
             method: 'POST',
             url: 'http://localhost:4001/api/v1/payments',
             data: {
                 event_ID,
-                attendee_ID,
+                attendee_CID,
                 total_Amount,
                 no_of_tickets
             },
@@ -39,7 +39,7 @@ document.querySelector('#registerevent').addEventListener('click', (e) => {
     e.preventDefault()
     const total_Amount = parseInt(document.querySelector('.ttl-clr').textContent.match(/(\d+)/)[0])
     const event_ID = localStorage.getItem('event_id')
-    const attendee_ID = obj["cid"]
+    const attendee_CID = obj["cid"]
     const no_of_tickets = parseInt(document.querySelector('.order-number').textContent)
-    checkout(event_ID, attendee_ID, total_Amount, no_of_tickets)
+    checkout(event_ID, attendee_CID, total_Amount, no_of_tickets)
 })
