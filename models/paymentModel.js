@@ -6,7 +6,7 @@ const Event = require('./eventModel');
 const Payment = db.define('Payment', {
     transaction_ID: {
         type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        defaultValue: DataTypes.UUIDV1,
         primaryKey: true
     },
     attendee_CID: {
